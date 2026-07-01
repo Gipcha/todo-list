@@ -141,6 +141,10 @@ body {
   font-size: 15px;
 }
 
+.done p {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
 /* checkbox */
 .task-checkbox {
   transform: scale(1.2);
