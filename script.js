@@ -2,7 +2,11 @@ const currentDate = document.getElementById("date");
 const inputField = document.getElementById("input-field");
 const addTaskButton = document.getElementById("add-task-btn");
 const tasksContainer = document.getElementById("tasks-container");
+const allButton = document.getElementById("all-tasks");
+const doneButton = document.getElementById("done-tasks");
+const undoneButton = document.getElementById("undone-tasks");
 let tasks = [];
+let currentFilter = "all";
 
 addTaskButton.addEventListener("click", () => {
   const text = inputField.value;
@@ -10,6 +14,21 @@ addTaskButton.addEventListener("click", () => {
   tasks.push(task);
   renderAllTasks();
   inputField.value = "";
+});
+
+doneButton.addEventListener("click", () => {
+  currentFilter = "done";
+  renderAllTasks();
+});
+
+allButton.addEventListener("click", () => {
+  currentFilter = "all";
+  renderAllTasks();
+});
+
+undoneButton.addEventListener("click", () => {
+  currentFilter = "undone";
+  renderAllTasks();
 });
 
 function createTask(text) {
@@ -47,7 +66,20 @@ function renderTask(task) {
 
 function renderAllTasks() {
   tasksContainer.innerHTML = "";
-  tasks.forEach((task) => {
+  filterTasks().forEach((task) => {
     renderTask(task);
   });
+}
+
+function filterTasks() {
+  if (currentFilter === "all") {
+    return tasks;
+  }
+  if (currentFilter === "done") {
+    return tasks.filter((task) => task.done === true);
+  }
+  if (currentFilter === "undone") {
+    return tasks.filter((task) => task.done === false);
+  }
+  return tasks;
 }
