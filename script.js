@@ -31,6 +31,28 @@ undoneButton.addEventListener("click", () => {
   renderAllTasks();
 });
 
+async function loadTasks() {
+  const url = "https://jsonplaceholder.typicode.com/todos";
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status:${response.status}`);
+    }
+    const data = await response.json();
+    const newTasks = data.slice(0, 10).map((item) => {
+      return {
+        text: item.title,
+        done: item.completed,
+        reminder: false,
+      };
+    });
+    tasks = newTasks;
+    renderAllTasks();
+  } catch (error) {
+    console.error("Fetch failed:", error);
+  }
+}
+
 function createTask(text) {
   return {
     id: Date.now(),
@@ -83,3 +105,5 @@ function filterTasks() {
   }
   return tasks;
 }
+
+loadTasks();
