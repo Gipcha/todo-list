@@ -37,7 +37,7 @@ body {
   padding: 28px;
 
   background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(6px); /* 💎 эффект “стекла” */
+  backdrop-filter: blur(6px);
 
   border: 1px solid rgba(31, 42, 68, 0.08);
   border-radius: 16px;
@@ -78,23 +78,24 @@ body {
 
 #input-field {
   flex: 1;
-
   padding: 12px;
-
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(31, 42, 68, 0.25);
-
   outline: none;
-
   font-size: 15px;
   color: #1f2a44;
+}
+
+#input-field::placeholder {
+  color: rgba(31, 42, 68, 0.45);
+  font-style: italic;
 }
 
 #add-task-btn {
   padding: 10px 14px;
 
-  background: #7b8c9e;
+  background: #82786d;
   color: white;
 
   border: none;
@@ -130,7 +131,9 @@ body {
   border: 1px solid rgba(31, 42, 68, 0.06);
   border-radius: 12px;
 
-  transition: 0.2s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* текст задачи */
@@ -139,6 +142,15 @@ body {
   margin-left: 10px;
   font-family: "arsenal", sans-serif;
   font-size: 15px;
+}
+#task-date {
+  display: block;
+  margin: 15px auto;
+}
+
+.task:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .done p {
@@ -164,15 +176,40 @@ body {
 }
 
 .delete-task-btn {
-  background-color: #ff6f61;
+  background-color: #f97d71;
   color: white;
   font-family: "arsenal", sans-serif;
 }
 
 .remind-btn {
-  background-color: #7b8c9e;
   color: white;
   font-family: "arsenal", sans-serif;
+}
+.reminder {
+  border-left: 4px solid #fcbbb5;
+  background: #fff7e6;
+}
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  display: none;
 }
 
 /* FILTERS */
@@ -197,4 +234,9 @@ body {
 #filter-btns button:hover {
   background: rgba(83, 82, 81, 0.2);
   transform: translateY(-1px);
+}
+
+#filter-btns button.active {
+  background: #f7c7c3;
+  color: #5c5248;
 }
