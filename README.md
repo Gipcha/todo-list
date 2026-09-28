@@ -50,3 +50,12 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/Gipcha/todo-list.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd todo-list
+```
+
+Then open `index.html` in your browser.
