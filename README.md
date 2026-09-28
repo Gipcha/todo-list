@@ -32,7 +32,7 @@ store data between sessions, and load initial data from an external REST API.
 
 ## 📸 Preview
 
-![To-Do List preview](.assets/icons/images/screenshot.png)
+![To-Do List preview](./assets/icons/images/screenshot.png)
 
 ## 🔧 Implementation
 
