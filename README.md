@@ -4,6 +4,9 @@ A task management application built with vanilla JavaScript.
 
 The application allows users to create and manage tasks, filter them by status,
 store data between sessions, and load initial data from an external REST API.
+## 🔗 Live Demo
+
+[View Live Demo](https://gipcha.github.io/todo-list/)
 
 ## ✨ Features
 
