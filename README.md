@@ -1,50 +1,49 @@
-# 📝 To-Do List App
+# 📝 To-Do List
 
-A simple and interactive To-Do List application built with **HTML, CSS, and JavaScript**.
+A task management application built with vanilla JavaScript.
 
----
+The application allows users to create and manage tasks, filter them by status,
+store data between sessions, and load initial data from an external REST API.
 
-## 🚀 Features
+## ✨ Features
 
-- ➕ Add new tasks
-- ✔ Mark tasks as done / undone
-- 🗑 Delete tasks
-- 🔍 Filter tasks (All / Done / Undone)
-- ⏰ Reminder system with toast notifications
-- 📅 Task date selection
-- 💾 Data persistence using LocalStorage
-- 🌐 Initial data loaded from API (JSONPlaceholder)
+- Create and delete tasks
+- Mark tasks as completed or active
+- Filter tasks by status: All / Done / Undone
+- Select a date for a task
+- Store tasks in LocalStorage
+- Load initial task data from JSONPlaceholder
+- Display toast notifications
+- Responsive interface
 
----
-
-## 🧠 Technologies Used
+## 🛠 Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla JS)
-- LocalStorage API
+- JavaScript (ES6+)
 - Fetch API
+- REST API
+- JSON
+- LocalStorage
+- Git
 
----
+## 📸 Preview
 
+![To-Do List preview](./assets/screenshot.png)
 
-## 📸 UI Preview
+## 🔧 Implementation
 
-![To-Do App Screenshot](assets/screenshot.png)
+The application uses JavaScript to manage task state and update the DOM dynamically.
 
-## ⚙️ How it works
+On the initial visit, task data is requested from JSONPlaceholder using the Fetch API.
+After that, user-created data is persisted in LocalStorage so tasks remain available
+between browser sessions.
 
-1. On first load, tasks are fetched from an API or loaded from LocalStorage.
-2. User can add new tasks with optional date.
-3. Tasks can be filtered and managed.
-4. Reminder system shows toast notifications after a selected time.
+Filtering is handled on the client side without reloading the page.
 
----
+## ▶️ Run Locally
 
-## 📦 Installation
+Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/todo-app.git
-cd todo-app
-open index.html
-```
+git clone https://github.com/Gipcha/todo-list.git
